@@ -8,4 +8,3 @@ services:
     image: tomcat:9.0
     volumes:
     - /webapp/:/usr/local/tomcat/webapps/
-  
