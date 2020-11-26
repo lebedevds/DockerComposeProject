@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mvn:
+    build: maven
+    volumes:
+    - /webapp/:./boxfuse-sample-java-war-hello/target
+  webapp:
+    image: tomcat:9.0
+    volumes:
+    - /webapp/:/usr/local/tomcat/webapps/
+  
