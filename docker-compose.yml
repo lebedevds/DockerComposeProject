@@ -1,10 +1,14 @@
 version: '3'
 services:
   mvn:
-    build: maven
+    build:
+      context: ./images
+      dockerfile: Dockerfile
     volumes:
     - /webapp/:/tmp/boxfuse-sample-java-war-hello/target
   webapp:
-    image: tomcat:9.0
+    build:
+      context: ./images
+      dockerfile: Dockerfile-tomcat
     volumes:
-    - /webapp/:/usr/local/tomcat/webapps/
+    - /webapp/:/opt/tomcat/apache-tomcat-8.5.60/webapps/
