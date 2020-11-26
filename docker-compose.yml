@@ -10,15 +10,13 @@ services:
        source: webapp
        target: /tmp/boxfuse-sample-java-war-hello/target/
   webapp:
-    build:
-       context: ./images
-       dockerfile: Dockerfile-tomcat
+    image: davidcaste/alpine-tomcat
     ports:
        - "8080:8080"
     volumes:
      - type: volume
        source: ./webapp
-       target: /opt/tomcat/apache-tomcat-8.5.60/webapps/
+       target: /opt/tomcat/webapps/
        volume:
          nocopy: true
 volumes:
